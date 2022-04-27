@@ -3,7 +3,9 @@
 public class AuthenticationResponse
 {
 
+#pragma warning disable CS8618
     public AuthenticationResponse()
+#pragma warning restore CS8618
     {
         Status = StatusCode.Success;
         StatusText = "Success";
