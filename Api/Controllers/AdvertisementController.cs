@@ -40,9 +40,9 @@ public class AdvertisementController : ControllerBase
     public async Task<IActionResult> PutAdvertisement(int id, AdvertisementDto advertisement)
     {
         if (id != advertisement.Id) return BadRequest();
+        var advertisementMapped = _mapper.Map<Advertisement>(advertisement);
 
-
-        _context.Entry(advertisement).State = EntityState.Modified;
+        _context.Entry(advertisementMapped).State = EntityState.Modified;
 
         try
         {

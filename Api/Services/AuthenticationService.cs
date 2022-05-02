@@ -45,7 +45,7 @@ public class AuthenticationService : IAuthenticationService
     public JwtSecurityToken CreateToken(List<Claim> claims)
     {
         var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtOptions:Secret"]));
-        _ = int.TryParse(_configuration["JwtOptions:TokenValidityInMinutes"], out int tokenValidityInMinutes);
+        _ = int.TryParse(_configuration["JwtOptions:TokenValidityInMinutes"], out var tokenValidityInMinutes);
 
 
         return new JwtSecurityToken(
