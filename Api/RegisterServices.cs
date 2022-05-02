@@ -1,4 +1,6 @@
-﻿using IAuthenticationService = Api.Services.IAuthenticationService;
+﻿using System.Reflection;
+using Api.Persistence;
+using IAuthenticationService = Api.Services.IAuthenticationService;
 
 namespace Api;
 
@@ -6,8 +8,6 @@ public static class RegisterServices
 {
     public static void ConfigureServices(this WebApplicationBuilder builder)
     {
-
-
         builder.Services.AddControllers()
             .AddNewtonsoftJson();
 
@@ -92,6 +92,9 @@ public static class RegisterServices
             });
 
         builder.Services.AddScoped<IAuthenticationService, Services.AuthenticationService>();
+
+
+        builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
     }
 }

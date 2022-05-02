@@ -1,6 +1,6 @@
-﻿namespace Api.Entities;
+﻿namespace Api.Application.DTO;
 
-public class Advertisement
+public class AdvertisementDto
 {
     public int Id { get; set; }
     public string Title { get; set; } = null!;

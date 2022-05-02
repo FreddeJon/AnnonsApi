@@ -7,6 +7,8 @@ builder.ConfigureServices();
 
 var app = builder.Build();
 
+
+await app.Services.InitializeDataAsync();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

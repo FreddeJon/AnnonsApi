@@ -1,4 +1,5 @@
-﻿using Api.Services;
+﻿using Api.Application.Models;
+using Api.Services;
 
 namespace Api.Controllers;
 
@@ -24,7 +25,7 @@ public class AuthenticationController : ControllerBase
 
         var response = await _authenticationService.ValidateUser(model.Email, model.Password);
 
-        if (response.Status == Models.StatusCode.Unauthorized)
+        if (response.Status == Application.Models.StatusCode.Unauthorized)
         {
             return Unauthorized(response.StatusText);
         }

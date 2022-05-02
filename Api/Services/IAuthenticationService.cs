@@ -1,4 +1,6 @@
-﻿namespace Api.Services;
+﻿using Api.Application.Models;
+
+namespace Api.Services;
 
 public interface IAuthenticationService
 {

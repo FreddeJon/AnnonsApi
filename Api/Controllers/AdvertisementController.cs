@@ -1,4 +1,9 @@
-﻿namespace Api.Controllers;
+﻿using Api.Application.DTO;
+using Api.Application.Entities;
+using Api.Application.Models;
+using Api.Persistence;
+
+namespace Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -18,7 +23,7 @@ public class AdvertisementController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AdvertisementDto>>> GetAdvertisements()
     {
-        return Ok(_mapper.Map<AdvertisementDto>(await _context.Advertisements.ToListAsync()));
+        return Ok(_mapper.Map<List<AdvertisementDto>>(await _context.Advertisements.ToListAsync()));
     }
 
     [HttpGet("{id}")]
@@ -79,7 +84,7 @@ public class AdvertisementController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Advertisement>> PostAdvertisement(AdvertisementModel advertisement)
     {
-        var newAd = new Advertisement() { Text = advertisement.Text, Title = advertisement.Title };
+        var newAd = _mapper.Map<Advertisement>(advertisement);
         _context.Advertisements.Add(newAd);
         await _context.SaveChangesAsync();
 

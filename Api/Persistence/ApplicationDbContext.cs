@@ -1,4 +1,6 @@
-﻿namespace Api.Data;
+﻿using Api.Application.Entities;
+
+namespace Api.Persistence;
 
 public class ApplicationDbContext : IdentityDbContext
 {
