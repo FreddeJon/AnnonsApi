@@ -10,9 +10,6 @@ public class AdvertisementModel
     public string Text { get; set; } = null!;
     [Required(ErrorMessage = "{0} is required")]
     [MaxLength(30)]
-    public string Category { get; set; } = null!;
-    [Required(ErrorMessage = "{0} is required")]
-    [MaxLength(30)]
     public string Seller { get; set; } = null!;
     [Required(ErrorMessage = "{0} is required")]
     [Range(1, 10000000, ErrorMessage = "{0} must be between {1} and {2}")]

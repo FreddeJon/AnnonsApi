@@ -70,6 +70,7 @@ public class AdvertisementController : ControllerBase
     {
         var entity = await _context.Advertisements.FirstOrDefaultAsync(x => x.Id == id);
 
+
         if (entity == null) return NotFound();
 
 
@@ -82,7 +83,7 @@ public class AdvertisementController : ControllerBase
 
   
     [HttpPost]
-    public async Task<ActionResult<Advertisement>> PostAdvertisement(AdvertisementModel advertisement)
+    public async Task<ActionResult<AdvertisementDto>> PostAdvertisement(AdvertisementModel advertisement)
     {
         var newAd = _mapper.Map<Advertisement>(advertisement);
         _context.Advertisements.Add(newAd);
